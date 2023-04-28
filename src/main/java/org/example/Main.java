@@ -2,7 +2,6 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        //JAIME PUTERO
         Alumno a = new Alumno("Carlos",
                 "López", (byte) 58);
         Alumno b = new Alumno("María",
@@ -17,6 +16,7 @@ public class Main {
         Fichero.escribir(c, "alumnos.bin");
         Fichero.escribir(d, "alumnos.bin");
         Alumno e = Fichero.leer("alumnos.bin");
+        System.out.println("Jaime Putero");
         System.out.println("Leido: " + e.getNombre() + " "
                 + e.getApellidos() + " " + e.getEdad());
     }
