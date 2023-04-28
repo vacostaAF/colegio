@@ -24,7 +24,7 @@ public class Main {
         Fichero.actualizar(a, "alumnos.bin", 1);
         Fichero.actualizar(b, "alumnos.bin", 2);
         Alumno e = Fichero.leer("alumnos.bin");
-        System.out.println("Jaime Putero");
+        System.out.println("Enrique desistala el counter");
         System.out.println("Leido: " + e.getNombre() + " "
                 + e.getApellidos() + " " + e.getEdad());
     }
