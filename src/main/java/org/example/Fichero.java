@@ -34,10 +34,12 @@ public class Fichero {
     {
         try {
             File f = new File(fichero);
-            f.delete();
+
             RandomAccessFile raf =
                     new RandomAccessFile(f, "rw");
 
+            if (f.length()>0)
+                raf.seek(f.length());
             raf.writeChars(a.toString());
             raf.writeByte(a.getEdad());
 
