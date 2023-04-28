@@ -8,27 +8,8 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class Fichero {
-    static final int TAM_REGISTRO_CHARS=60;
-
-    public static void escribir2(Alumno a, String f)
-    {
-        try {
-
-            Path fichero = Paths.get(f);
-            BufferedWriter bw = Files.newBufferedWriter(fichero,
-                    StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-
-            bw.write(a.toString());
-            bw.write(a.getEdad());
-
-            bw.close();
-
-        }
-        catch (IOException e) {
-            System.out.println(e);
-        }
-
-    }
+    static final int TAM_REGISTRO_CHARS = 60;
+    static final int TAM_REGISTRO_BYTES = 121;
 
     public static void escribir(Alumno a, String fichero)
     {
@@ -38,8 +19,38 @@ public class Fichero {
             RandomAccessFile raf =
                     new RandomAccessFile(f, "rw");
 
+            //Posicionar al final del archivo
             if (f.length()>0)
                 raf.seek(f.length());
+            raf.writeChars(a.toString());
+            raf.writeByte(a.getEdad());
+
+            raf.close();
+
+        }
+        catch (IOException e) {
+            System.out.println(e);
+        }
+
+    }
+
+    /**
+     * Actualiza el alumno index con el objeto a en fichero
+     * @param a
+     * @param fichero
+     * @param index
+     */
+    public static void actualizar(Alumno a, String fichero, int index)
+    {
+        try {
+            File f = new File(fichero);
+
+            RandomAccessFile raf =
+                    new RandomAccessFile(f, "rw");
+
+            //Posicionar el archivo en index
+            if (f.length()>0)
+                raf.seek((index-1) * TAM_REGISTRO_BYTES);
             raf.writeChars(a.toString());
             raf.writeByte(a.getEdad());
 

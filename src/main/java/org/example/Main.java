@@ -5,7 +5,7 @@ public class Main {
         Alumno a = new Alumno("Carlos",
                 "López", (byte) 58);
         Alumno b = new Alumno("María",
-                "Agüelles", (byte) 23);
+                "Argüelles", (byte) 23);
         Alumno c = new Alumno("Fabio",
                 "CIDEP", (byte) 22);
         Alumno d = new Alumno("Carmen",
@@ -15,6 +15,14 @@ public class Main {
         Fichero.escribir(b, "alumnos.bin");
         Fichero.escribir(c, "alumnos.bin");
         Fichero.escribir(d, "alumnos.bin");
+
+        a.setNombre("Pepe");
+        a.setApellidos("Gómez");
+        a.setEdad((byte)27);
+        b.setNombre("Ana");
+
+        Fichero.actualizar(a, "alumnos.bin", 1);
+        Fichero.actualizar(b, "alumnos.bin", 2);
         Alumno e = Fichero.leer("alumnos.bin");
         System.out.println("Leido: " + e.getNombre() + " "
                 + e.getApellidos() + " " + e.getEdad());
