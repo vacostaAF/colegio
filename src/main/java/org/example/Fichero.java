@@ -118,6 +118,7 @@ public class Fichero {
                 index++;
             }
 
+
             raf.close();
 
         }

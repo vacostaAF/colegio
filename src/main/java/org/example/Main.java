@@ -11,6 +11,7 @@ public class Main {
         Alumno d = new Alumno("Carmen",
                 "Ruiz", (byte)  30);
 
+
         Fichero.escribir(a, "alumnos.bin");
         Fichero.escribir(b, "alumnos.bin");
         Fichero.escribir(c, "alumnos.bin");
