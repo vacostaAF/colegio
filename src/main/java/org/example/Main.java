@@ -20,11 +20,11 @@ public class Main {
         a.setApellidos("Gómez");
         a.setEdad((byte)27);
         b.setNombre("Ana");
-
+        //enrique ere mas malo en counter que usar mando en minecraft
         Fichero.actualizar(a, "alumnos.bin", 1);
         Fichero.actualizar(b, "alumnos.bin", 2);
         Alumno e = Fichero.leer("alumnos.bin");
-        System.out.println("Enrique desistala el counter");
+        System.out.println("Enrique ");
         System.out.println("Leido: " + e.getNombre() + " "
                 + e.getApellidos() + " " + e.getEdad());
     }
